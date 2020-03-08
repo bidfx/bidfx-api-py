@@ -43,18 +43,18 @@ deps:
 pretty:
 	black .
 
-version: pretty
+version:
 	bumpversion minor
 
 docs:
 	$(MAKE) -C docs clean html
 	$(BROWSER) docs/build/html/index.html
 
-release: clean test docs
+release: clean pretty test docs
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
-dist: clean test docs
+dist: clean pretty test docs
 	python setup.py sdist
 	python setup.py bdist_wheel
 
