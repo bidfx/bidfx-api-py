@@ -1,20 +1,19 @@
-![BidFX-API-Python](https://user-images.githubusercontent.com/2197551/76171801-35d74100-6187-11ea-8cc5-7f29b66d00ea.png)
-
 # BidFX Public API for Python
 
 [![Release](https://img.shields.io/pypi/v/bidfx-api)](https://pypi.org/project/bidfx-api)
 [![Status](https://img.shields.io/pypi/status/bidfx-api)](https://pypi.org/project/bidfx-api)
+[![Source Release](https://img.shields.io/github/v/release/bidfx/bidfx-api-py?sort=semver)](https://github.com/bidfx/bidfx-api-py)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![ReadTheDocs](https://img.shields.io/readthedocs/bidfx-api-py)](https://readthedocs.org/projects/bidfx-api-py)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+![BidFX-API-Python](https://user-images.githubusercontent.com/2197551/76171801-35d74100-6187-11ea-8cc5-7f29b66d00ea.png)
 
 -------
 
-## Features
 
-The BidFX Python API is a *pricing* and *trading* API that connects to
-the BidFX platform to subscribe to realtime pricing and to place orders.
-The API supports:
+A *pricing* and *trading* API that connects to the BidFX trading platform 
+to subscribe to realtime pricing and to place orders. The API supports:
 
  - FX request for stream (RFS) pricing
  - FX request for quote (RFQ) pricing
