@@ -139,8 +139,8 @@ The distribution is written to the [dist](dist) directory.
 
  ```sh
 $ ls dist
-bidfx-api-0.1.0.tar.gz
-bidfx_api-0.1.0-py3-none-any.whl
+bidfx-api-0.2.0.tar.gz
+bidfx_api-0.2.0-py3-none-any.whl
 ```
 
 ### Making a release

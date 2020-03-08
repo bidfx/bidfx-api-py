@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
-version = "0.1.0"
+version = "0.2.0"
 
 setuptools.setup(
     name="bidfx-api",
