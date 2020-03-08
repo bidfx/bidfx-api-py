@@ -33,33 +33,18 @@ When available, you will be able to clone the API with the following command.
 
 .. code-block:: python
 
-    git clone https://github.com/bidfx/bidfx-api-python.git
-
-
-Source distribution
--------------------
-
-Early adopters of the API are provided with a Python source distribution.
-This is a gzipped tar file containing a versioned release of the API.
-You unpack the source distribution as follows.
-Note, you may have a different version number to the example below.
-
-.. code-block:: sh
-
-    tar -xf bidfx-api-python-0.1.0.tar.gz
-    cd bidfx-api-python-0.1.0
+    git clone https://github.com/bidfx/bidfx-api-py.git
 
 
 Installation
 ------------
 
-Once you have the library code unpacked you need to install it.
 The library is setup to use the ``pip`` package manager.
-It can be installed running ``pip`` from the top-level directory.
+It can be installed running ``pip`` as follows.
 
 .. code-block:: sh
 
-    pip install .
+    pip install bidfx-api
 
 
 Session configuration
@@ -110,7 +95,11 @@ The normal pattern for using the pricing API is:
 3. register the pricing callback functions
 4. start the pricing threads
 5. subscribe to Subjects
- 
+
+
+Minimal example
+---------------
+
 Here is a small but complete example of a price consuming application:
 
 
@@ -120,40 +109,99 @@ Here is a small but complete example of a price consuming application:
 
 
     def on_price_event(event):
-        print(f"Price update to {event.subject} is {event.price}")
+        print(f"Price update to {event}")
 
 
-    def on_subscription_event(event):
-    print(f"Subscription to {event.subject} is {event.status}")
-
-    
     def main():
-        # configure the Session
         session = Session.create_from_ini_file()
-
-        # fetch the pricing API from the Session
         pricing = session.pricing
-
-        # register the pricing callback functions
         pricing.callbacks.price_event_fn = on_price_event
-        pricing.callbacks.subscription_event_fn = on_subscription_event
-
-        # start the pricing threads
+        pricing.subscribe(
+            pricing.build.fx.stream.spot.liquidity_provider("CSFX")
+            .currency_pair("EURUSD")
+            .currency("EUR")
+            .quantity(1000000)
+            .create_subject()
+        )
         pricing.start()
 
-        # subscribe to Subjects
-        pricing.subscribe(pricing.build.fx.stream.spot.liquidity_provider(
-            "CSFX").currency_pair("EURUSD").currency("EUR").quantity(1000000).create_subject())
-    
-    
+
     if __name__ == "__main__":
         main()
 
 
 After subscribing to a Subject, you will start receiving related `PriceEvent`
-via the registered callback function: ``pricing.callbacks.price_event_fn``.
-In addition, then the status of subscriptions will be notified as `SubscriptionEvent` objects via the
+notifications via the registered callback function: ``pricing.callbacks.price_event_fn``.
+
+In addition, if required, whenever the status of a subscription changes a `SubscriptionEvent` notification is published via the
 registered subscription status callback ``pricing.callbacks.subscription_event_fn``.
+
+
+FX streaming example
+--------------------
+
+Example of streaming (RFS) firm spot rates direct from LPs
+
+.. code-block:: python
+
+    import logging
+
+    from bidfx import Session, Subject
+
+
+    def on_price_event(event):
+        if event.price:
+            print(
+                "{} {} {} {} {} -> {}".format(
+                    event.subject[Subject.CURRENCY_PAIR],
+                    event.subject[Subject.LIQUIDITY_PROVIDER],
+                    event.subject[Subject.DEAL_TYPE],
+                    event.subject[Subject.CURRENCY],
+                    event.subject[Subject.QUANTITY],
+                    event.price,
+                )
+            )
+
+
+    def on_subscription_event(event):
+        print(f"Subscription to {event}")
+
+
+    def on_provider_event(event):
+        print(f"Provider {event}")
+
+
+    def main():
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s %(levelname)-7s %(threadName)-12s %(message)s",
+        )
+        session = Session.create_from_ini_file()
+        pricing = session.pricing
+        pricing.callbacks.price_event_fn = on_price_event
+        pricing.callbacks.subscription_event_fn = on_subscription_event
+        pricing.callbacks.provider_event_fn = on_provider_event
+        pricing.start()
+
+        pricing.subscribe(
+            pricing.build.fx.stream.spot.liquidity_provider("DBFX")
+            .currency_pair("EURUSD")
+            .currency("EUR")
+            .quantity(1000000)
+            .create_subject()
+        )
+        pricing.subscribe(
+            pricing.build.fx.stream.spot.liquidity_provider("DBFX")
+            .currency_pair("USDJPY")
+            .currency("USD")
+            .quantity(5000000)
+            .create_subject()
+        )
+
+
+    if __name__ == "__main__":
+        main()
+
 
 
 Building subjects

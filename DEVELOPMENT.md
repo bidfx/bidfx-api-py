@@ -8,8 +8,14 @@ The Python API has been open sourced with an Apache 2.0 licence.
 
 ### PyPI
 
-The project releases are available on [PyPI](https://bidfx-py.pypi.org) so users can install then with the 
-command `pip install bidfx-py`. Instructions for making a release are given below.
+The project releases are available on [PyPI](https://pypi.org/project/bidfx-api/) so users can install the
+API with the command:
+
+```sh
+pip install bidfx-api
+```
+
+Instructions for making a release are given below.
 
 
 ### Read The Docs
@@ -97,7 +103,7 @@ before making a new release.
 ### Code formatting
 
 The Python source code is pretty formatted for consistency using [Black](https://github.com/psf/black).
-You can trigger a manual reformat by typing `make pretty` which runs `back` over all source files.
+You can trigger a manual reformat by typing `make pretty` which runs `Black` over all source files.
 You can also configure your IDE to reformat each Python file as it is saved.
 
 
@@ -128,14 +134,15 @@ The docs are generated as HTML with the top-level page at `docs/build/html/index
 
 ### Making a distribution
 
-The distribution is created by running the `make`. Run the command:
+The distribution is created by running the [setup.py](setup.py) which is done via `make`. 
+To create a distribution run the command:
 
 ```sh
 make dist
 ```
 
-To build a new distribution into a tar file.
-The distribution is written to the [dist](dist) directory.
+This will build a new distribution into a tar file.
+The distribution is written to the [dist](dist) directory as follows.
 
  ```sh
 $ ls dist
@@ -148,5 +155,7 @@ bidfx_api-0.2.0-py3-none-any.whl
 The project uses [Twine](https://github.com/pypa/twine) to manage publishing API releases to [PyPI](https://pypi.org).
 Trigger a release by typing `make release` or test the process on [Test PyPI](https://test.pypi.org) 
 by typing `make test-release`.
-To get this to work you will have to install an API key for both PyPI accounts in your `$HOME/.pypirc` file.
-Instructions are provided when you set up a PyPI account.
+
+To get the release procedure to work you will have to install an API key for both PyPI accounts
+in your `$HOME/.pypirc` file.
+Instructions are provided when you set up an account on the PyPI web site.

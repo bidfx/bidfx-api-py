@@ -33,7 +33,7 @@ def on_provider_event(event):
 
 def main():
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=logging.INFO,
         format="%(asctime)s %(levelname)-7s %(threadName)-12s %(message)s",
     )
     session = Session.create_from_ini_file()
