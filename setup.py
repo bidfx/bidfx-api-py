@@ -13,7 +13,7 @@ with open("requirements.txt") as f:
 
 setuptools.setup(
     name="bidfx-api",
-    version="0.5.0",
+    version="0.1.0",
     author="Paul Sweeny",
     author_email="paul.sweeny@bidfx.com",
     description="Public API for accessing the BidFX platform for pricing and trading",
