@@ -11,15 +11,18 @@ with open("README.md", "r") as fh:
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
+version = "0.1.0"
+
 setuptools.setup(
     name="bidfx-api",
-    version="0.1.0",
+    version=version,
     author="Paul Sweeny",
     author_email="paul.sweeny@bidfx.com",
     description="Public API for accessing the BidFX platform for pricing and trading",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/bidfx/bidfx-api-py",
+    download_url="https://github.com/bidfx/bidfx-api-py/tarball/v" + version,
     packages=setuptools.find_packages(),
     install_requires=requirements,
     license="Apache License 2.0",
@@ -31,6 +34,7 @@ setuptools.setup(
         "Intended Audience :: Financial and Insurance Industry",
         "Topic :: Office/Business :: Financial :: Investment",
         "Natural Language :: English",
+        "Development Status :: 4 - Beta",
     ],
     python_requires=">=3.6",
 )

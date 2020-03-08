@@ -2,15 +2,31 @@
 
 # Development Notes
 
-## Github
+## Open Source
 
-As part of the BidFX Open Source initiative, we intend to published the source code on the
+The Python API has been open sourced with an Apache 2.0 licence.
+
+### PyPI
+
+The project releases are available on [PyPI](https://bidfx-py.pypi.org) so users can install then with the 
+command `pip install bidfx-py`. Instructions for making a release are given below.
+
+
+### Read The Docs
+
+The project documentation is published online to [readthedocs](https://readthedocs.org/projects/bidfx-api-py/).
+
+
+### Github
+
+As part of the BidFX Open Source initiative, we have published the API source code on the
 [BidFX Github Page](https://github.com/bidfx).
-When available, you will be able to get the API with the command:
+Users are able to get the API with the command:
 
 ```sh
 git clone https://github.com/bidfx/bidfx-api-py.git
 ```
+
 
 ## IDE
 
@@ -78,12 +94,19 @@ before making a new release.
 
 ## Release procedure
 
+### Code formatting
+
+The Python source code is pretty formatted for consistency using [Black](https://github.com/psf/black).
+You can trigger a manual reformat by typing `make pretty` which runs `back` over all source files.
+You can also configure your IDE to reformat each Python file as it is saved.
+
+
 ### Version number
 
 The library version is managed by [bump2version](https://github.com/c4urself/bump2version) 
-and the version number is defined in the file [.bumpversion.cfg](.bumpversion.cfg).
-A number of files contain the version number.  
-Unless you want to update them all the version number must be increased for each new release 
+and the version number is defined in the file [setup.cfg](setup.cfg).
+A number of source and doc files contain the version number so,  
+unless you want to update them all manually, the version number must be increased for each new release 
 by running `make version` to bump to the next minor version number.
 This just runs:
 
@@ -119,3 +142,11 @@ $ ls dist
 bidfx-api-0.1.0.tar.gz
 bidfx_api-0.1.0-py3-none-any.whl
 ```
+
+### Making a release
+
+The project uses [Twine](https://github.com/pypa/twine) to manage publishing API releases to [PyPI](https://pypi.org).
+Trigger a release by typing `make release` or test the process on [Test PyPI](https://test.pypi.org) 
+by typing `make test-release`.
+To get this to work you will have to install an API key for both PyPI accounts in your `$HOME/.pypirc` file.
+Instructions are provided when you set up a PyPI account.

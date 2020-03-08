@@ -4,6 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![ReadTheDocs](https://img.shields.io/readthedocs/bidfx-api-py)](https://readthedocs.org/projects/bidfx-api-py)
 
 -------
 
@@ -29,27 +30,18 @@ of the Hitchhiker’s Guide to Python.
 
 ## Quick start
 
+### Installation
+
 The API can be installed by running.
 
 ```sh
 pip install bidfx-api-py
 ```
 
-View the API docs at [Read The Docs](https://bidfx-api-py.readthedocs.io).
+### API Docs
 
-Create a config INI file to configure the API for yourself.
-Start by copying the [Example config](examples/config_example.ini) provided.
+View the API documentation at [Read The Docs](https://bidfx-api-py.readthedocs.io).
 
-```sh
-cp examples/config_example.ini $HOME/.bidfx/api/config.ini
-vi $HOME/.bidfx/api/config.ini
-```
-
-Run one of the many [Example scripts](examples), for example:
-
-```sh
-./examples/pricing/example_minimal.py
-```
 
 ## Alternative APIs
 
