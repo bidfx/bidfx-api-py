@@ -2,15 +2,13 @@ __all__ = ["BIDFX_API_INFO"]
 
 import uuid
 
-from ._version import __version__
-
 
 class _BidFxAPI:
     """
     This class provides the identifying information for the BidFX Python API including its version.
     """
 
-    def __init__(self, version=__version__):
+    def __init__(self, version="0.4.0"):
         self._name = "bidfx-public-api-py"
         self._product = "BidFXPython"
         self._version = version

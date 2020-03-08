@@ -2,8 +2,6 @@ import sys
 
 import setuptools
 
-from bidfx._version import __version__ as version
-
 if sys.version_info < (3, 6):
     sys.exit("Sorry, Python versions less that 3.6 are not supported")
 
@@ -15,7 +13,7 @@ with open("requirements.txt") as f:
 
 setuptools.setup(
     name="bidfx-api",
-    version=version,
+    version="0.4.0",
     author="Paul Sweeny",
     author_email="paul.sweeny@bidfx.com",
     description="Public API for accessing the BidFX platform for pricing and trading",

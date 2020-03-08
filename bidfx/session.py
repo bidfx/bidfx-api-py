@@ -3,7 +3,7 @@ __all__ = ["Session"]
 from configparser import ConfigParser
 from pathlib import Path
 
-from ._version import __version__
+from ._bidfx_api import BIDFX_API_INFO
 from .pricing.pricing import PricingAPI
 from .trading.trading import TradingAPI
 
@@ -65,4 +65,4 @@ class Session:
 
         :rtype: str
         """
-        return __version__
+        return BIDFX_API_INFO.version

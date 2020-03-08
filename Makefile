@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs clean init test deps version
+.PHONY: clean-pyc clean-build docs clean init test deps version pretty
 
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
@@ -38,10 +38,12 @@ deps:
 	source ~/virtualenvs/bidfx-api/bin/activate
 	pip freeze | xargs pip uninstall -y
 	pip install .
-	echo "to exit venv use: deactivate"
+	echo "to exit the virtual env type: deactivate"
 
-version:
+pretty:
 	black .
+
+version: pretty
 	bumpversion minor
 
 docs:
