@@ -1,4 +1,4 @@
-![BidFX logo](docs/_static/bidfx_logo_128.png)
+![BidFX logo](docs/_static/BidFX-API-Python-640px.png)
 
 # Public API for Python
 
@@ -29,21 +29,13 @@ of the Hitchhiker’s Guide to Python.
 
 ## Quick start
 
-Armed with the latest distribution follow these steps.
-
-Unpack and install the API.
+The API can be installed by running.
 
 ```sh
-tar -xf bidfx-api-python-0.4.0.tar.gz 
-cd bidfx-api-python-0.4.0
-pip install .
+pip install bidfx-api-py
 ```
 
-View the bundled API docs in a web browser.
-
-```sh
-open docs/build/html/index.html
-```
+View the API docs at [Read The Docs](https://bidfx-api-py.readthedocs.io).
 
 Create a config INI file to configure the API for yourself.
 Start by copying the [Example config](examples/config_example.ini) provided.
@@ -68,6 +60,3 @@ at [BidFX API Overview](https://www.bidfx.com/apis).
 ## Development notes
 
 API developers should read the [Developer Notes](DEVELOPMENT.md).
-
-
-
