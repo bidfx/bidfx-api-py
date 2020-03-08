@@ -29,7 +29,7 @@ clean-pyc:
 	find . -name '__pycache__' -exec rm -fr {} +
 
 init:
-	pip install -q -r requirements.txt
+	pip install -q -r requirements-dev.txt
 
 test: init
 	python -m unittest
@@ -50,13 +50,15 @@ docs:
 	$(MAKE) -C docs clean html
 	$(BROWSER) docs/build/html/index.html
 
-release: clean pretty test docs
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
-
 dist: clean pretty test docs
 	python setup.py sdist
 	python setup.py bdist_wheel
+
+test-release: dist
+	twine upload --repository testpypi dist/*
+
+release: dist
+	twine upload dist/*
 
 install: clean
 	python setup.py install

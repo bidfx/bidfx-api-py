@@ -2,17 +2,6 @@
 
 # Development Notes
 
-
-## Bitbucket
-
-During development of the library the source code has been kept in 
-[Bitbucket](http://git.dev.tradingscreen.com:7990/projects/BIDFX/repos/public-api-python/browse). 
-Download the API source with the command:
-
-```sh
-git clone https://git.dev.tradingscreen.com:7990/scm/bidfx/public-api-python
-```
-
 ## Github
 
 As part of the BidFX Open Source initiative, we intend to published the source code on the
@@ -20,7 +9,7 @@ As part of the BidFX Open Source initiative, we intend to published the source c
 When available, you will be able to get the API with the command:
 
 ```sh
-git clone https://github.com/bidfx/bidfx-api-python.git
+git clone https://github.com/bidfx/bidfx-api-py.git
 ```
 
 ## IDE
@@ -31,9 +20,10 @@ For Python development we recommend [PyCharm](https://www.jetbrains.com/pycharm/
 ## PIP installation
 
 The library is setup to use the `pip` package manager.
-Pip will install all of the the API dependencies.
+PIP will install all of the the API dependencies.
 The API relies only on Python3 built-ins and a few select libraries.
 You can see a list of dependencies in the [requirements.txt](requirements.txt).
+
 Developers can install the requirements, without installing the BidFX library, 
 by issuing the command.
 
@@ -41,24 +31,28 @@ by issuing the command.
 pip install -r requirements.txt
 ```
 
-Those who prefer to install from the source distribution can do so with `pip` 
-by running the following command.
+To create a release you will also need to install development requirements with the command.
 
 ```sh
-pip install .
+pip install -r requirements-dev.txt
 ```
 
-## Running tests
+Make will do this for you when you `make release`.
+
+
+## Testing
+
+### Running unit tests
 
 Unit tests are provided in the [tests](tests) directory.
-Test the package by running the unit tests.
-Issue issue the command below from the top-level directory or run from an IDE.
+To test the package by running the unit tests type `make test`.
+Alternatively issue the command below from the top-level directory or run from an IDE.
 
 ```sh
 python -m unittest
 ```
 
-## Example programs
+### Example programs
 
 Plenty of example programs demonstrating the use of the API
 are provided in the [examples](examples) directory.
@@ -70,7 +64,7 @@ These are split into:
 It is recommended that all example programs are run successfully before making a new release.
 
 
-## Certification scripts
+### Certification scripts
 
 In addition to the example programs provided for API users, the source distribution
 provides a set of certification test programs.
@@ -82,7 +76,34 @@ It is recommended that all certification programs are run successfully
 before making a new release.
 
 
-## Making a distribution
+## Release procedure
+
+### Version number
+
+The library version is managed by [bump2version](https://github.com/c4urself/bump2version) 
+and the version number is defined in the file [.bumpversion.cfg](.bumpversion.cfg).
+A number of files contain the version number.  
+Unless you want to update them all the version number must be increased for each new release 
+by running `make version` to bump to the next minor version number.
+This just runs:
+
+ ```sh
+bumpversion minor
+```
+
+### API documentation
+
+Making a distribution will also build the documentation from the docstrings in the Python source code.
+The docs are created using [Sphinx](https://github.com/sphinx-doc/sphinx)
+You can build the docs and test them in a browser by running:
+
+ ```sh
+make docs
+```
+
+The docs are generated as HTML with the top-level page at `docs/build/html/index.html`.
+
+### Making a distribution
 
 The distribution is created by running the `make`. Run the command:
 
@@ -95,23 +116,6 @@ The distribution is written to the [dist](dist) directory.
 
  ```sh
 $ ls dist
-bidfx-api-python-0.1.0.tar.gz
-bidfx_api_python-0.1.0-py3-none-any.whl
+bidfx-api-0.5.0.tar.gz
+bidfx_api-0.5.0-py3-none-any.whl
 ```
-
-## API documentation
-
-Making a distribution will also build the documentation from the docstrings in the Python source code.
-You can build the docs and test them in a browser by running:
-
- ```sh
-make docs
-```
-
-The docs are generated as HTML with the top-level page at `docs/build/html/index.html`.
-
-
-## Version number
-
-The library version is defined in the file [bidfx/_version.py](bidfx/_version.py).
-The version number must be increased for each new release.
