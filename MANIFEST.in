@@ -1,0 +1,6 @@
+include *.md *.txt
+recursive-include examples *.ini *.py
+recursive-include docs/build *.html *.css *.png
+recursive-include docs/source *.png
+prune build
+prune tests
