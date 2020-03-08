@@ -1,4 +1,4 @@
-![BidFX logo](docs/_static/BidFX-API-Python-640px.png)
+![BidFX-API-Python](https://user-images.githubusercontent.com/2197551/76171801-35d74100-6187-11ea-8cc5-7f29b66d00ea.png)
 
 # Public API for Python
 
