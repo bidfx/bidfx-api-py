@@ -130,17 +130,17 @@ Ask your BidFX sales representative for price details.
 Latency
 =======
 
-FX pricing has the potential to update very rapidly, especially at time of major news announcements.
+FX pricing has the potential to update very rapidly, especially around times of major news announcements.
 Too many price subscriptions can generate substantial amounts of network traffic,
 causing bandwidth saturation and heavy CPU load on the application host.
-If an overworked application becomes a *slow consumer* then it will experience excessive latency.
+If an overworked application becomes a *slow consumer* then it will experience latency.
 
 We recommend all API users to close subscriptions that are no longer required to minimise network load.
 
 If you experience latency then there are a few remedial actions you can take:
 
 - Reduce the number of open subscriptions.
-- Increase the price publication throttle.
+- Change the configuration to increase the price publication throttle.
 - Move your application close to your main source of liquidity.
 - Install a dedicated network link with high capacity and QoS.
 - Ideally cross-connect at the same data center as BidFX.

@@ -17,6 +17,7 @@ Contents
    :maxdepth: 2
 
    about
+   liquidity
    user_guide
    examples
    configuration

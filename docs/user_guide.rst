@@ -5,6 +5,17 @@ User Guide
 Download and installation
 =========================
 
+Installation
+------------
+
+The library is setup to use the ``pip`` package manager.
+It can be installed running ``pip`` as follows.
+
+.. code-block:: sh
+
+    pip install bidfx-api
+
+
 Python version
 --------------
 
@@ -34,17 +45,6 @@ When available, you will be able to clone the API with the following command.
 .. code-block:: python
 
     git clone https://github.com/bidfx/bidfx-api-py.git
-
-
-Installation
-------------
-
-The library is setup to use the ``pip`` package manager.
-It can be installed running ``pip`` as follows.
-
-.. code-block:: sh
-
-    pip install bidfx-api
 
 
 Session configuration
@@ -202,6 +202,26 @@ Example of streaming (RFS) firm spot rates direct from LPs
     if __name__ == "__main__":
         main()
 
+
+
+Callbacks
+---------
+
+The *Price API* notifies user-code of various pricing events via a set of callback functions.
+Separate callback are provided for:
+
+- Price update events (`price_event_fn` for `PriceEvent`)
+- Subscription status events (`subscription_event_fn` for `SubscriptionEvent`)
+- Provider status events (`provider_event_fn` for `ProviderEvent`)
+
+Events are dispatched through in instance of the class `Callbacks` which is a property of the `PricingAPI`.
+
+
+Price field names
+-----------------
+
+Price Fields as just strings key-pairs. The field names are simple works or terms such as "Bid", "Ask" or "AskSize".
+A list of the most common price field names is provided by the class `Field`.
 
 
 Building subjects

@@ -13,7 +13,6 @@ class Callbacks:
 
     __slots__ = (
         "price_event_fn",
-        "price_grid_event_fn",
         "subscription_event_fn",
         "provider_event_fn",
     )
@@ -22,12 +21,6 @@ class Callbacks:
         self.price_event_fn = _noop
         """
         The callback function to be used for handling price events.
-
-        :type: def function(event: `PriceEvent`)
-        """
-        self.price_grid_event_fn = _noop
-        """
-        The callback function to be used for handling price grid events.
 
         :type: def function(event: `PriceEvent`)
         """
