@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs clean init test deps version pretty
+.PHONY: clean clean-pyc clean-build init test deps pretty version docs dist test-release release install
 
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
@@ -14,6 +14,7 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
 
 clean: clean-build clean-pyc
+	$(MAKE) -C docs clean
 
 clean-build:
 	rm -fr build/

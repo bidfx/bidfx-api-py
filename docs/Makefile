@@ -1,5 +1,4 @@
-# Minimal makefile for Sphinx documentation
-#
+.PHONY: help clean sphinx Makefile
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
@@ -12,8 +11,8 @@ BUILDDIR      = build
 help: sphinx
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
-
+clean:
+	rm -fr build/
 
 sphinx:
 	pip -q install Sphinx

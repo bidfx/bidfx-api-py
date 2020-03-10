@@ -37,7 +37,6 @@ API docs
 
    bidfx
    pricing
-   trading
 
 
 Indices and tables

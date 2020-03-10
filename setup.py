@@ -18,7 +18,7 @@ setuptools.setup(
     version=version,
     author="Paul Sweeny",
     author_email="paul.sweeny@bidfx.com",
-    description="Public API for accessing the BidFX platform for pricing and trading",
+    description="Public API for accessing the BidFX platform for pricing",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/bidfx/bidfx-api-py",

@@ -37,11 +37,3 @@ class IncompatibleVersionError(PricingError):
     """
 
     pass
-
-
-class TradingError(BidFXError):
-    """
-    Base class for all errors raised by the BidFX Trading API. Extends `BidFXError`.
-    """
-
-    pass

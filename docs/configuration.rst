@@ -70,7 +70,6 @@ There is four sections in the configuration INI file:
 - ``[DEFAULT]`` - defines shared properties such as *host* and *port*.
 - ``[Exclusive Pricing]`` - is for overrides and properties particular to *Exclusive Pricing* (Pixie protocol).
 - ``[Shared Pricing]`` - is for overrides and properties particular to *Shared Pricing* (Puffin protocol).
-- ``[Trading]`` - is for overrides and properties particular to the *Trading* features.
 
 
 Default section
@@ -119,19 +118,6 @@ The configuration of the Price Provider for *exclusive pricing* uses the followi
 - min_interval
 
 
-Trading section
----------------
-
-Trading functionality is provided by the API using both REST and WebSocket protocols.
-Both delivery mechanisms transmit their data using JSON.
-The configuration of the trading API requires the following properties:
-
-- host
-- port
-- username
-- password
-
-
 Example INI config file
 =======================
 
@@ -161,6 +147,3 @@ Example INI config file
 
     [Shared Pricing]
     # Use this section to override DEFAULT settings for use with shared pricing.
-
-    [Trading]
-    # Use this section to override DEFAULT settings for use when accessing the Trading API.

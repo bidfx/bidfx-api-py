@@ -7,9 +7,8 @@ These can be found under the ``examples`` directory, immediately under the top-l
 Two sets of examples are provided to demonstrate the:
 
 * Pricing API
-* Trading API
 
-These are located in separate sub-directories called ``examples/pricing`` and ``examples/trading``.
+These are located in separate sub-directories called ``examples/pricing``.
 
 
 Configuration

@@ -5,7 +5,6 @@ from pathlib import Path
 
 from ._bidfx_api import BIDFX_API_INFO
 from .pricing.pricing import PricingAPI
-from .trading.trading import TradingAPI
 
 
 class Session:
@@ -19,7 +18,6 @@ class Session:
         :param config_parser: The API configuration settings.
         :type config_parser: configparser.ConfigParser
         """
-        self._trading = TradingAPI(config_parser)
         self._pricing = PricingAPI(config_parser)
 
     @staticmethod
@@ -47,16 +45,6 @@ class Session:
         :rtype: PricingAPI
         """
         return self._pricing
-
-    @property
-    def trading(self):
-        """
-        Gets the Trading API session used for placing orders.
-
-        :return: A configured interface to the `TradingAPI`.
-        :rtype: TradingAPI
-        """
-        return self._trading
 
     @staticmethod
     def version() -> str:

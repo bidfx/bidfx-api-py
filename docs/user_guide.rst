@@ -259,8 +259,4 @@ Below are some Subject building examples that produce the same Subjects as the p
     pricing.unsubscribe(indicative_spot)
 
 
-Trading API
-===========
-
-TODO when stable.
 

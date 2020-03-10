@@ -12,14 +12,11 @@
 -------
 
 
-A *pricing* and *trading* API that connects to the BidFX trading platform 
-to subscribe to realtime pricing and to place orders. The API supports:
+A *pricing* API that connects to the BidFX trading platform 
+to subscribe to realtime FX pricing. The API supports:
 
  - FX request for stream (RFS) pricing
  - FX request for quote (RFQ) pricing
- - FX and Futures trading via
-    [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) or 
-    [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
 
 
 ## Quick start
