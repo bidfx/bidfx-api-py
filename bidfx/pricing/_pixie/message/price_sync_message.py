@@ -10,8 +10,6 @@ ERROR_FID = int.from_bytes(b"\x7f\xff\xff\xff", byteorder="big")
 
 FULL_MAP = b"f"
 PARTIAL_MAP = b"p"
-FULL_GRID = b"G"
-GRID_UPDATE = b"g"
 STATUS = b"s"
 
 STATUSES = {

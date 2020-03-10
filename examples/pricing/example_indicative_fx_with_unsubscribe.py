@@ -42,7 +42,6 @@ def main():
     session = Session.create_from_ini_file()
     pricing = session.pricing
     pricing.callbacks.price_event_fn = on_price_event
-    pricing.callbacks.price_grid_event_fn = None
     pricing.callbacks.subscription_event_fn = on_subscription_event
     pricing.callbacks.provider_event_fn = on_provider_event
     session.pricing.start()

@@ -22,27 +22,6 @@ def on_price_event(event):
         )
 
 
-def on_price_grid_event(event):
-    for row in event.grid:
-        subject = event.subject
-        bid_part = row.bid
-        ask_part = row.ask
-        row_number = 1
-        for bid_price, ask_price in zip(bid_part, ask_part):
-            print(
-                "LEVEL 2 {} {} | BID {} {} | ASK {} {}".format(
-                    row_number,
-                    subject[Subject.CURRENCY_PAIR],
-                    bid_price.get(Field.BID_FIRM, ""),
-                    bid_price.get(Field.BID, ""),
-                    ask_price.get(Field.ASK, ""),
-                    ask_price.get(Field.ASK_FIRM, ""),
-                )
-            )
-            row_number += 1
-    print("=" * 10)
-
-
 def on_subscription_event(event):
     print(f"Subscription to {event.subject} is {event.status}")
 
@@ -59,7 +38,6 @@ def main():
     session = Session.create_from_ini_file()
     pricing = session.pricing
     pricing.callbacks.price_event_fn = on_price_event
-    pricing.callbacks.price_grid_event_fn = on_price_grid_event
     pricing.callbacks.subscription_event_fn = on_subscription_event
     pricing.callbacks.provider_event_fn = on_provider_event
     pricing.start()
