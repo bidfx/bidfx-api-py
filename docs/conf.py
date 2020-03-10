@@ -60,19 +60,19 @@ autoclass_content = "both"
 
 latex_logo = "_static/bidfx_logo_128.png"
 
-latex_elements = {
-    "papersize": "a4paper",
-    "pointsize": "12pt",
-    "preamble": "",
-    "figure_align": "htbp",
-}
-latex_paper_size = "a4paper"
-latex_documents = [
-    (
-        "index",
-        u"bidfx-public-api-python.pdf",
-        u"BidFX Public API for Python",
-        u"Paul Sweeny",
-        u"manual",
-    ),
-]
+# latex_elements = {
+#     "papersize": "a4paper",
+#     "pointsize": "12pt",
+#     "preamble": "",
+#     "figure_align": "htbp",
+# }
+# latex_paper_size = "a4paper"
+# latex_documents = [
+#     (
+#         "index",
+#         u"bidfx-public-api-python.pdf",
+#         u"BidFX Public API for Python",
+#         u"Paul Sweeny",
+#         u"manual",
+#     ),
+# ]
