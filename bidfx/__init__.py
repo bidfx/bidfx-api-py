@@ -3,4 +3,4 @@ from .pricing import *
 from .session import *
 
 __all__ = session.__all__ + pricing.__all__ + exceptions.__all__
-__version__ = "0.3.0"
+__version__ = "0.3.1"
