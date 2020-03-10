@@ -3,7 +3,6 @@ __all__ = [
     "PricingError",
     "InvalidSubjectError",
     "IncompatibleVersionError",
-    "TradingError",
 ]
 
 
