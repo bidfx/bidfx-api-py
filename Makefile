@@ -47,7 +47,7 @@ pretty:
 version:
 	bumpversion minor
 
-docs:
+docs: init
 	$(MAKE) -C docs clean html
 	$(BROWSER) docs/build/html/index.html
 
