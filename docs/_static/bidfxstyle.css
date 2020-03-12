@@ -17,6 +17,7 @@
     - action-100: #16b1ff
     - bidfx-blue: #012169
     - light-case: #ffffff
+    - detail-100: #5b6071
 */
 
 /* -- page layout ----------------------------------------------------------- */
@@ -53,6 +54,7 @@ div.related {
     padding: 8px;
     background-color: #1D1E20;
     font-size: 1em;
+    width: unset !important;
 }
 
 div.related ul {
@@ -123,7 +125,7 @@ div.sphinxsidebar .logo {
 div.sphinxsidebar h3, div.sphinxsidebar h4 {
     margin: 1em 0 0.5em 0;
     color: #012169;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0,0,0,0.05);
     padding: 0 .5em;
 }
 
@@ -144,7 +146,7 @@ div.sphinxsidebar ul {
     padding-left: 1.5em;
     margin-top: 7px;
     padding: 0;
-    line-height: 130%;
+    line-height: 180%;
 }
 
 div.sphinxsidebar li::before {
@@ -216,10 +218,6 @@ a:hover {
     color: #1190cf;
 }
 
-div.body a {
-    text-decoration: underline;
-}
-
 ul {
     list-style: none !important;
 }
@@ -233,6 +231,10 @@ ul li::before {
     font-size: 20px;
     margin-left: -1em;
     vertical-align: bottom;
+}
+
+ul li p {
+    display: inline-block;
 }
 
 ul li ul li::before {
@@ -442,11 +444,11 @@ p.versionchanged span.versionmodified {
 
 dl.field-list > dt {
     color: white;
-    background-color: #82A0BE;
+    background-color: #5b6071;
 }
 
 dl.field-list > dd {
-    background-color: #f7f7f7;
+    background-color: rgb(0,0,0,0.05);
 }
 
 /* -- table styles ---------------------------------------------------------- */
@@ -454,8 +456,7 @@ dl.field-list > dd {
 table.docutils {
     margin: 1em 0;
     padding: 0;
-    border: 1px solid white;
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     color: #012169;
 }
 
@@ -486,7 +487,7 @@ th {
     color: white;
     text-align: left;
     padding-right: 5px;
-    background-color: #82A0BE;
+    background-color: #5b6071;
 }
 
 div.literal-block-wrapper div.code-block-caption {
@@ -502,9 +503,6 @@ div.literal-block-wrapper div.code-block-caption {
 
 /* TABLET STYLE */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    body {
-        margin: 0 40px 0 40px;
-    }
 }
 
 /* MOBILE LAYOUT (PORTRAIT/320px) */
