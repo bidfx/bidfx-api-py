@@ -2,6 +2,10 @@
 BidFX Public API for Python
 ***************************
 
+.. image:: _static/BidFX-API-Python-640px.png
+   :width: 320
+   :alt: Python API
+
 The BidFX Python API is a price API that connects to
 the BidFX trading platform to subscribe to realtime pricing.
 The API supports the following features:
