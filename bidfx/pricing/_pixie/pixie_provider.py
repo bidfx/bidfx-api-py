@@ -69,7 +69,7 @@ class PixieProvider(PriceProvider):
             self._publish_provider_status(ProviderStatus.DOWN, "starting up")
             self._running = True
             threading.Thread(
-                target=self._init_connection, name=self._provider_name + "-read"
+                target=self._init_connection, name=self._provider_name + "-read", daemon=True
             ).start()
 
     def subscribe(self, subject):
