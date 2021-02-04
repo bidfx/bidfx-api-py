@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import logging
+from time import sleep
 
 from bidfx import Session, Subject, Field
 
@@ -82,6 +83,9 @@ def main():
         .symbol("E:CSLP")
         .create_subject()
     )
+
+    sleep(60)
+    pricing.stop()
 
 
 if __name__ == "__main__":

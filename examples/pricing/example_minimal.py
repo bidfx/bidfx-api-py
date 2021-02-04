@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from time import sleep
 from bidfx import Session
 
 
@@ -19,7 +20,8 @@ def main():
         .create_subject()
     )
     pricing.start()
-
+    sleep(60)
+    pricing.stop()
 
 if __name__ == "__main__":
     main()

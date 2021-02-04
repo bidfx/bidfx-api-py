@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import logging
+from time import sleep
 
 from bidfx import Session, Subject, Field, Tenor
 
@@ -66,6 +67,8 @@ def main():
                 .create_subject()
             )
 
+    sleep(60)
+    pricing.stop()
 
 if __name__ == "__main__":
     main()

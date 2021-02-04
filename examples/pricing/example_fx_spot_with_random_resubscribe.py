@@ -79,6 +79,9 @@ def main():
         for subject in subjects[:2]:
             pricing.subscribe(subject)
 
+    sleep(20)
+    pricing.stop()
+
 
 if __name__ == "__main__":
     main()
