@@ -64,6 +64,9 @@ def main():
     for s in subjects:
         session.pricing.subscribe(s)
 
+    time.sleep(30)
+    pricing.stop()
+
 
 if __name__ == "__main__":
     main()

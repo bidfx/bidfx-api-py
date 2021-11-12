@@ -33,6 +33,9 @@ class DisabledProvider(PriceProvider):
     def start(self):
         pass
 
+    def stop(self):
+        pass
+
     def subscribe(self, subject):
         pass
 
@@ -79,6 +82,10 @@ class PricingAPI(PriceProvider):
     def start(self):
         self._pixie_provider.start()
         self._puffin_provider.start()
+
+    def stop(self):
+        self._pixie_provider.stop()
+        self._puffin_provider.stop()
 
     def subscribe(self, subject):
         if self._is_exclusive_subject(subject):

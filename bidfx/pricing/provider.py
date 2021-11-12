@@ -18,6 +18,13 @@ class PriceProvider(abc.ABC):
         pass
 
     @abc.abstractmethod
+    def stop(self):
+        """
+        Stops the pricing threads.
+        """
+        pass
+
+    @abc.abstractmethod
     def subscribe(self, subject):
         """
         Subscribes to real-time price publications on a given `Subject` representing an instrument.

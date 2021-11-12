@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import logging
+from time import sleep
 
 from bidfx import Session, Subject, Field
 
@@ -41,6 +42,9 @@ def main():
         pricing.subscribe(
             pricing.build.fx.indicative.spot.currency_pair(ccyPair).create_subject()
         )
+
+    sleep(60)
+    pricing.stop()
 
 
 if __name__ == "__main__":
