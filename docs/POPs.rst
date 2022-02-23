@@ -14,15 +14,13 @@ The table below lists the available Production POPs.
 +----------+-------------+-------------------------------------+-------------+-----+
 |City      |Environment  |DNS name                             |IP           |Port |
 +==========+=============+=====================================+=============+=====+
-|London    |PROD         | ln-tunnel.prod.tradingscreen.com    |199.27.86.88 |  443|
+|London    |PROD         | api.ld.bidfx.com                    |64.52.164.90 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
-|New York  |PROD         | ny-tunnel.prod.tradingscreen.com    |199.27.81.88 |  443|
+|New York  |PROD         | api.ny.bidfx.com                    |64.52.165.90 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
-|Tokyo     |PROD         | to-tunnel.prod.tradingscreen.com    |199.27.85.88 |  443|
+|Tokyo     |PROD         | api.ty.bidfx.com                    |64.52.166.90 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
-|Hong Kong |PROD         | hk-tunnel.prod.tradingscreen.com    |199.27.84.88 |  443|
-+----------+-------------+-------------------------------------+-------------+-----+
-|Paris     |PROD         | pa-tunnel.prod.tradingscreen.com    |199.27.83.88 |  443|
+|Singapore |PROD         | api.sg.bidfx.com                    |64.52.167.90 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
 
 Clients are encouraged to connect to their **geographically closest** access
@@ -39,9 +37,9 @@ The table below lists the available UAT POPs.
 +----------+-------------+-------------------------------------+-------------+-----+
 |City      |Environment  |DNS name                             |IP           |Port |
 +==========+=============+=====================================+=============+=====+
-|New York  |UAT          |ny-tunnel.uatprod.tradingscreen.com  |199.27.81.99 |  443|
+|London    |UAT          |api.ld.bidfx.biz                     |64.52.164.80 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
-|London    |UAT          |ln-tunnel.uatprod.tradingscreen.com  |199.27.86.91 |  443|
+|Tokyo     |UAT          |api.ty.bidfx.biz                     |64.52.166.80 |  443|
 +----------+-------------+-------------------------------------+-------------+-----+
 
 UAT pricing subscriptions are routed to liquidity provider **test sessions**.
