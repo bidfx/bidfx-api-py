@@ -125,7 +125,7 @@ Example INI config file
 
     [DEFAULT]
     # The host and port number of the BidFX service to connect to.
-    host = ny-tunnel.uatprod.tradingscreen.com
+    host = api.ld.bidfx.biz
     port = 443
 
     # Provide the API login credentials provided by your BidFX account manager.
