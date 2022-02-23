@@ -20,7 +20,7 @@ Instructions for making a release are given below.
 
 ### Read The Docs
 
-The project documentation is published online to [readthedocs](https://readthedocs.org/projects/bidfx-api-py/).
+The project documentation is published online [here](https://docs.bidfx.com/api-py/index.html).
 
 
 ### Github
