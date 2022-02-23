@@ -29,7 +29,7 @@ pip install bidfx-api
 
 ### API docs
 
-Read the documentation on [Read The Docs](https://bidfx-api-py.readthedocs.io).
+Read the documentation [here](https://docs.bidfx.com/api-py/index.html).
 
 
 ## Python version
