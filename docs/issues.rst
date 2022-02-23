@@ -69,13 +69,13 @@ If you encounter network issues then it is possible to test the connectivity to 
 .. code-block:: sh
 
     $ ping ln-tunnel.uatprod.tradingscreen.com
-    PING ln-tunnel.uatprod.tradingscreen.com (199.27.86.91): 56 data bytes
-    64 bytes from 199.27.86.91: icmp_seq=0 ttl=58 time=1.175 ms
-    64 bytes from 199.27.86.91: icmp_seq=1 ttl=58 time=1.076 ms
+    PING api.ld.bidfx.biz (64.52.164.80): 56 data bytes
+    64 bytes from 64.52.164.80: icmp_seq=0 ttl=58 time=1.175 ms
+    64 bytes from 64.52.164.80: icmp_seq=1 ttl=58 time=1.076 ms
 
-    $ telnet ln-tunnel.uatprod.tradingscreen.com 443
-    Trying 199.27.86.91...
-    Connected to ln-tunnel.uatprod.tradingscreen.com.
+    $ telnet api.ld.bidfx.biz 443
+    Trying 64.52.164.80...
+    Connected to api.ld.bidfx.biz.
     Escape character is '^]'.
 
 Consult your network team if either command returns an error or hangs.
