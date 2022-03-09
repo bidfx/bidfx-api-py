@@ -68,7 +68,7 @@ If you encounter network issues then it is possible to test the connectivity to 
 
 .. code-block:: sh
 
-    $ ping ln-tunnel.uatprod.tradingscreen.com
+    $ ping api.ld.bidfx.biz
     PING api.ld.bidfx.biz (64.52.164.80): 56 data bytes
     64 bytes from 64.52.164.80: icmp_seq=0 ttl=58 time=1.175 ms
     64 bytes from 64.52.164.80: icmp_seq=1 ttl=58 time=1.076 ms
