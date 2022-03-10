@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/pypi/status/bidfx-api)](https://pypi.org/project/bidfx-api)
 [![Source Release](https://img.shields.io/github/v/release/bidfx/bidfx-api-py?sort=semver)](https://github.com/bidfx/bidfx-api-py)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![ReadTheDocs](https://img.shields.io/readthedocs/bidfx-api-py)](https://readthedocs.org/projects/bidfx-api-py)
+[![Docs](https://img.shields.io/badge/docs-docs.bidfx.com-green)](https://docs.bidfx.com/api-py/index.html)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ![BidFX-API-Python](https://user-images.githubusercontent.com/2197551/76171801-35d74100-6187-11ea-8cc5-7f29b66d00ea.png)
