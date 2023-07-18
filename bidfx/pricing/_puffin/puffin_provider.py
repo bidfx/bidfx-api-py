@@ -2,7 +2,6 @@ __all__ = ["PuffinProvider"]
 
 import logging
 import os
-import socket
 import threading
 import time
 from base64 import b64decode, b64encode
@@ -105,7 +104,9 @@ class PuffinProvider(PriceProvider):
             self._publish_provider_status(ProviderStatus.DOWN, "starting up")
             self._running = True
             threading.Thread(
-                target=self._init_connection, name=self._provider_name + "-read", daemon=True
+                target=self._init_connection,
+                name=self._provider_name + "-read",
+                daemon=True,
             ).start()
 
     def subscribe(self, subject):
