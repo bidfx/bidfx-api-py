@@ -23,5 +23,6 @@ def main():
     sleep(60)
     pricing.stop()
 
+
 if __name__ == "__main__":
     main()

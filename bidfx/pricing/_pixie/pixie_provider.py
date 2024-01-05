@@ -1,9 +1,9 @@
 __all__ = ["PixieProvider"]
 
 import logging
-import os
 import threading
 import time
+import getpass
 from datetime import datetime
 
 from bidfx._bidfx_api import BIDFX_API_INFO
@@ -69,7 +69,9 @@ class PixieProvider(PriceProvider):
             self._publish_provider_status(ProviderStatus.DOWN, "starting up")
             self._running = True
             threading.Thread(
-                target=self._init_connection, name=self._provider_name + "-read", daemon=True
+                target=self._init_connection,
+                name=self._provider_name + "-read",
+                daemon=True,
             ).start()
 
     def subscribe(self, subject):
@@ -210,7 +212,7 @@ class PixieProvider(PriceProvider):
         login_message = LoginMessage(
             self._username,
             self._password,
-            os.getlogin(),
+            getpass.getuser(),
             BIDFX_API_INFO.name,
             BIDFX_API_INFO.version,
             self._product_serial,

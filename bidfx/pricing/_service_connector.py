@@ -96,5 +96,5 @@ class ServiceConnector:
         received_response = opened_socket.recv(4096)
         log.debug("received: " + repr(received_response))
         if b"200 OK" not in received_response:
-            log.warning("tunnel return error status: ", received_response)
+            log.warning("tunnel return error status: " + repr(received_response))
             raise ConnectionAbortedError("tunnel return non 200 status")
