@@ -6,6 +6,7 @@ import socket
 import threading
 import time
 from base64 import b64decode, b64encode
+import traceback
 
 from Cryptodome.Cipher import PKCS1_v1_5
 from Cryptodome.PublicKey import RSA
@@ -139,7 +140,7 @@ class PuffinProvider(PriceProvider):
             self._publish_provider_status(ProviderStatus.READY)
             self._price_server_read_loop()
         except Exception as e:
-            log.warning(f"connection attempt failed due to: {e}")
+            log.warning(f"connection attempt failed due to: {traceback.format_exc()}")
 
     def _prepare_new_session(self):
         self._compressor = MessageCompressor(self._opened_socket)
@@ -175,7 +176,7 @@ class PuffinProvider(PriceProvider):
                 self._handle_received_message(message)
         except Exception as e:
             self._publish_provider_status(
-                ProviderStatus.DOWN, f"connection error due to: {e}"
+                ProviderStatus.DOWN, f"connection error due to: {traceback.format_exc()}"
             )
             self._notify_all_subjects_as_stale(
                 f"price provider {self._provider_name} is down"
@@ -248,7 +249,7 @@ class PuffinProvider(PriceProvider):
             cipher = PKCS1_v1_5.new(key)
             return b64encode(cipher.encrypt(password.encode("utf-8")))
         except Exception as e:
-            print(e)
+            log.error(traceback.format_exc())
 
     @staticmethod
     def _verify_version(server_version):
