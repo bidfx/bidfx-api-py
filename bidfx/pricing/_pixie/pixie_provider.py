@@ -5,7 +5,6 @@ import os
 import threading
 import time
 from datetime import datetime
-import traceback
 
 from bidfx._bidfx_api import BIDFX_API_INFO
 from bidfx.exceptions import PricingError, IncompatibleVersionError
@@ -108,7 +107,7 @@ class PixieProvider(PriceProvider):
             self._publish_provider_status(ProviderStatus.READY)
             self._price_server_read_loop()
         except Exception as e:
-            log.warning(f"connection attempt failed due to: {traceback.format_exc()}")
+            log.warning(f"connection attempt failed due to: {e}")
 
     def _prepare_new_session(self):
         self._decompressor = Decompressor()
@@ -144,7 +143,7 @@ class PixieProvider(PriceProvider):
                 del buffer
         except Exception as e:
             self._publish_provider_status(
-                ProviderStatus.DOWN, f"connection error due to: {traceback.format_exc()}"
+                ProviderStatus.DOWN, f"connection error due to: {e}"
             )
             self._notify_all_subjects_as_stale(
                 f"price provider {self._provider_name} is down"

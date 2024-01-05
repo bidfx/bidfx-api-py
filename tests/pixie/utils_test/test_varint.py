@@ -145,7 +145,16 @@ class TestReadFromSocket(unittest.TestCase):
 
     def test_reads_from_socket_until_requested_length_fulfilled(self):
         mock_socket = mock.Mock()
-        values = [b"ult", b"res"]
+        values = [b"res", b"ult"]
+        values.reverse()
+        mock_socket.recv = lambda _: values.pop()
+
+        self.assertEqual(b"result", read_bytes(mock_socket, 6))
+
+    def test_only_reads_from_socket_requested_length(self):
+        mock_socket = mock.Mock()
+        values = [b"res", b"ult", b"extra"]
+        values.reverse()
         mock_socket.recv = lambda _: values.pop()
 
         self.assertEqual(b"result", read_bytes(mock_socket, 6))
