@@ -96,7 +96,12 @@ def decode_varint_from_socket(socket_connection):
 
 
 def read_bytes(socket_connection, length):
-    byte_ = socket_connection.recv(length)
-    if byte_ == b"":
-        raise socket.error("end of socket stream")
-    return byte_
+    result = b""
+
+    while len(result) != length:
+        byte_ = socket_connection.recv(length - len(result))
+        if byte_ == b"":
+            raise socket.error("end of socket stream")
+        result += byte_
+        
+    return result

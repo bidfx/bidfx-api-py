@@ -249,7 +249,7 @@ class PuffinProvider(PriceProvider):
             cipher = PKCS1_v1_5.new(key)
             return b64encode(cipher.encrypt(password.encode("utf-8")))
         except Exception as e:
-            print(e)
+            log.error(e)
 
     @staticmethod
     def _verify_version(server_version):
