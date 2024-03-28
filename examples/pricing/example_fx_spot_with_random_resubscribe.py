@@ -67,6 +67,7 @@ def main():
     pricing.callbacks.provider_event_fn = on_provider_event
     pricing.start()
     subjects = create_subjects(pricing)
+
     for subject in subjects:
         pricing.subscribe(subject)
     for _ in range(10):

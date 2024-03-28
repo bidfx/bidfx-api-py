@@ -263,14 +263,16 @@ Below are some Subject building examples that produce the same Subjects as the p
 .. code-block:: python
 
     from bidfx import Session
+    from bidfx.pricing.tenor import Tenor
+
     pricing = Session.create_from_ini_file().pricing
     indi_spot = pricing.build.fx.indicative.spot.currency_pair("USDCAD").create_subject()
 
     rfs_spot  = pricing.build.fx.stream.spot.liquidity_provider("CSFX").currency_pair(
         "EURUSD").currency("EUR").quantity(5000000).create_subject()
 
-    rfq_ndf   = pricing.build.fx.stream.spot.liquidity_provider("DBFX").currency_pair(
-        "USDKRW").currency("USD").quantity(1000000).create_subject()
+    rfq_ndf   = pricing.build.fx.quote.ndf.liquidity_provider("DBFX").currency_pair(
+        "USDKRW").currency("USD").quantity(1000000).tenor(Tenor.IN_1_MONTH).create_subject()
 
     # To subscribing to pricing
     pricing.subscribe(indicative_spot)
