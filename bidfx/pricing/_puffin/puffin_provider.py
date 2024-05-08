@@ -1,7 +1,7 @@
 __all__ = ["PuffinProvider"]
 
+import getpass
 import logging
-import os
 import threading
 import time
 from base64 import b64decode, b64encode
@@ -237,7 +237,7 @@ class PuffinProvider(PriceProvider):
             .set("Password", password)
             .set("Version", str(8))
             .set("Description", description)
-            .set("Alias", None or os.getlogin())
+            .set("Alias", None or getpass.getuser())
         )
         self._send_message(login_message, compress=False)
 
@@ -276,7 +276,7 @@ class PuffinProvider(PriceProvider):
             message = (
                 Element("ServiceDescription")
                 .set("username", self._username)
-                .set("alias", os.getlogin())
+                .set("alias", getpass.getuser())
                 .set("server", "false")
                 .set("discoverable", "false")
             )
