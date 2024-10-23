@@ -3,7 +3,7 @@ from unittest import TestCase
 
 from bidfx import Session
 
-VERSION = "1.1.2"
+VERSION = "1.1.3"
 
 
 class TestSession(TestCase):
