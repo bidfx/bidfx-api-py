@@ -81,6 +81,7 @@ class PuffinProvider(PriceProvider):
         PuffinProvider._instance += 1
         self._provider_name = f"Puffin-{PuffinProvider._instance}"
         self._host = config_section["host"]
+        self._valid_cn = config_section.get("valid_cn")
         self._port = config_section.getint("port", 443)
         self._username = config_section["username"]
         self._password = config_section["password"]
@@ -149,7 +150,7 @@ class PuffinProvider(PriceProvider):
 
     def _open_connection(self):
         connector = ServiceConnector(
-            self._host, self._port, self._username, self._password, BIDFX_API_INFO.guid
+            self._host, self._port, self._username, self._password, BIDFX_API_INFO.guid, self._valid_cn
         )
         read_timeout = self._heartbeat_interval * 2
         if self._tunnel:
