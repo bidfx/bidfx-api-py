@@ -67,22 +67,21 @@ class ServiceConnector:
 
     def _validate_certificate(self, opened_socket):
         cert = opened_socket.getpeercert()
-        valid_hostname = self._valid_cn if self._valid_cn else self._host
-        log.info(f"Validating certificate against {valid_hostname}")
-        ssl.match_hostname(cert, valid_hostname)
         before = datetime.strptime(cert["notBefore"], "%b %d %H:%M:%S %Y %Z")
         after = datetime.strptime(cert["notAfter"], "%b %d %H:%M:%S %Y %Z")
         if not before < datetime.utcnow() < after:
             raise ssl.CertificateError("certificate expired")
 
     def _wrap_as_secure_socket(self, opened_socket):
+        host_name = self._valid_cn if self._valid_cn else self._host
+        log.info(f"Wrapping SSL socket with server_hostname {host_name}")
         ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         ssl_context.verify_mode = ssl.CERT_REQUIRED
         ssl_context.set_ciphers(CIPHER_SUITES)
-        ssl_context.check_hostname = False
+        ssl_context.check_hostname = True
         ssl_context.load_default_certs()
         opened_socket = ssl_context.wrap_socket(
-            opened_socket, server_hostname=self._host
+            opened_socket, server_hostname=host_name
         )
         return opened_socket
 
