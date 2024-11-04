@@ -24,13 +24,14 @@ CIPHER_SUITES = (
 
 
 class ServiceConnector:
-    def __init__(self, host, port, username, password, guid, valid_cn):
+    def __init__(self, host, port, username, password, guid, valid_cn, valid_root_cert):
         self._host = host
         self._port = port
         self._username = username
         self._password = password
         self._guid = guid
         self._valid_cn = valid_cn
+        self._valid_root_cert = valid_root_cert
 
     def tunnel_socket_to_service(self, service, read_timeout):
         opened_socket = self._open_secure_socket(read_timeout)
@@ -43,9 +44,9 @@ class ServiceConnector:
         opened_socket.settimeout(read_timeout)
         try:
             opened_socket.connect((self._host, self._port))
-        except Exception as _:
+        except Exception as ex:
             raise ConnectionRefusedError(
-                f"could not open socket to {self._host}:{self._port}"
+                f"could not open socket to {self._host}:{self._port} due to {ex}"
             )
         return opened_socket
 
@@ -58,9 +59,9 @@ class ServiceConnector:
         opened_socket = self._wrap_as_secure_socket(opened_socket)
         try:
             opened_socket.connect((self._host, self._port))
-        except Exception as _:
+        except Exception as ex:
             raise ConnectionRefusedError(
-                f"could not open socket to {self._host}:{self._port}"
+                f"could not open socket to {self._host}:{self._port} due to {ex}"
             )
         self._validate_certificate(opened_socket)
         return opened_socket
@@ -79,7 +80,11 @@ class ServiceConnector:
         ssl_context.verify_mode = ssl.CERT_REQUIRED
         ssl_context.set_ciphers(CIPHER_SUITES)
         ssl_context.check_hostname = True
-        ssl_context.load_default_certs()
+        if self._valid_root_cert:
+            log.info(f"Loading root certificate {self._valid_root_cert}")
+            ssl_context.load_verify_locations(cafile=self._valid_root_cert)
+        else:
+            ssl_context.load_default_certs()
         opened_socket = ssl_context.wrap_socket(
             opened_socket, server_hostname=host_name
         )
