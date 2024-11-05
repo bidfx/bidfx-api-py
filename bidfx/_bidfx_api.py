@@ -8,7 +8,7 @@ class _BidFxAPI:
     This class provides the identifying information for the BidFX Python API including its version.
     """
 
-    def __init__(self, version="1.1.3"):
+    def __init__(self, version="1.1.4"):
         self._name = "bidfx-public-api-py"
         self._product = "BidFXPython"
         self._version = version
